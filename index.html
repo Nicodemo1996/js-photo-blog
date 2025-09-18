@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bacheca Fotografica</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&family=Sometype+Mono&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <h1>Js-Photo-Blog</h1>
+    <p class="subtitle">Clicca su una foto per ingrandirla</p>
+  </header>
+
+  <main>
+    <div id="gallery" class="gallery">
+
+      <article class="card">
+        <div class="pin">
+          <img src="img/pin.svg" alt="Pin decorativo" />
+        </div>
+        <img class="photo" src="https://picsum.photos/id/1011/800/600" alt="Esempio" />
+        <div class="meta">
+          <h2 class="photo-title">Foto di esempio</h2>
+          <time datetime="2021-01-01">2021-01-01</time>
+        </div>
+      </article>
+    </div>
+  </main>
+
+
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <button id="closeBtn" class="close-btn" aria-label="Chiudi overlay">&times;</button>
+      <img id="overlayImg" src="" alt="Immagine ingrandita" />
+      <p id="overlayCaption" class="overlay-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

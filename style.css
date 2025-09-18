@@ -1,0 +1,191 @@
+:root {
+  --max-width: 1200px;
+  --gap: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Sometype Mono', monospace;
+  color: #222;
+
+
+  background: url('img/cork.png') repeat;
+  background-size: cover;
+  /
+}
+
+
+
+.site-header {
+  padding: 20px 12px 8px;
+  text-align: center;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-family: 'Edu TAS Beginner', sans-serif;
+  font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: #555;
+}
+
+
+.gallery {
+  max-width: var(--max-width);
+  margin: 20px auto;
+  padding: 0 16px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap);
+}
+
+
+.card {
+  position: relative;
+
+
+
+  background: url('img/cork.png');
+  background-size: cover;
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.card img.photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 320ms cubic-bezier(.2, .8, .2, 1), box-shadow 320ms;
+  cursor: pointer;
+  display: block;
+}
+
+
+.pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-15deg);
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pin img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+
+.meta {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.photo-title {
+  margin: 0;
+  font-family: 'Edu TAS Beginner', sans-serif;
+  font-size: 1.05rem;
+}
+
+.meta time {
+  font-family: 'Sometype Mono', monospace;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+
+.card img.photo:hover {
+  transform: scale(1.06) rotate(10deg);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.28);
+}
+
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
+  padding: 20px;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.overlay-content img {
+  max-width: 100%;
+  max-height: calc(90vh - 80px);
+  border-radius: 8px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+}
+
+.overlay-caption {
+  color: #fff;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  transform: translate(50%, -50%);
+  background: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 12px 32px;
+  }
+
+  .card img.photo {
+    height: 260px;
+  }
+
+  .pin {
+    width: 28px;
+    height: 28px;
+  }
+
+  .site-header h1 {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+  }
+}
